@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imposter Malayalam – Party Word Game</title>
+  <meta name="description" content="The ultimate party word game for Malayalam speakers. Find the Imposter! Available on Android and iOS." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f0f13;
+      color: #e5e5e5;
+      min-height: 100vh;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #6d28d9, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      margin: 0 auto 24px;
+      box-shadow: 0 20px 60px rgba(139,92,246,0.4);
+    }
+    .hero h1 {
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .hero .malayalam {
+      font-size: 22px;
+      color: #a78bfa;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #a0a0b8;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* Download buttons */
+    .download-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn-android { background: #1a1a2e; border: 1px solid #2a2a3a; color: #fff; }
+    .btn-ios { background: #1a1a2e; border: 1px solid #2a2a3a; color: #fff; }
+    .btn svg { width: 22px; height: 22px; }
+
+    /* Features */
+    .features {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .features h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .feature-card {
+      background: #1a1a24;
+      border: 1px solid #2a2a3a;
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .feature-icon { font-size: 32px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .feature-card p { font-size: 14px; color: #a0a0b8; line-height: 1.6; }
+
+    /* How to play */
+    .howtoplay {
+      background: #13131a;
+      padding: 80px 24px;
+    }
+    .howtoplay-inner { max-width: 600px; margin: 0 auto; }
+    .howtoplay h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(139,92,246,0.2);
+      border: 1px solid rgba(139,92,246,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #a78bfa;
+      flex-shrink: 0;
+    }
+    .step-content h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .step-content p { font-size: 14px; color: #a0a0b8; line-height: 1.6; }
+
+    /* Footer */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid #1a1a24;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .footer-links a { font-size: 14px; color: #6060a0; text-decoration: none; }
+    .footer-links a:hover { color: #a0a0c0; }
+    footer p { font-size: 13px; color: #404060; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-icon">🕵️</div>
+    <h1>Imposter</h1>
+    <p class="malayalam">മലയാളം</p>
+    <p>The ultimate party word game for Malayalam speakers. One player is secretly the Imposter — can your friends figure out who it is?</p>
+
+    <div class="download-btns">
+      <a href="https://play.google.com/store/apps/details?id=com.malayalam.impostergame" class="btn btn-android">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.37.21.8.22 1.2.06l12.4-7.17-2.58-2.58-11.02 9.69zm16.6-10.7L17.4 11.5l2.48-2.48c.5-.5.5-1.32 0-1.82s-1.32-.5-1.82 0L15.5 9.76 3.1.24C2.7.08 2.27.09 1.9.3.5 1.1.5 2.87 1.9 3.67L14.92 12 1.9 20.33c-1.4.8-1.4 2.57 0 3.37.37.21.8.22 1.2.06l12.4-7.17 2.28 2.28c.5.5 1.32.5 1.82 0s.5-1.32 0-1.82z"/></svg>
+        Google Play
+      </a>
+      <a href="https://apps.apple.com/app/imposter-malayalam/id6773436407" class="btn btn-ios">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+    </div>
+
+    <p style="font-size:13px; color:#404060;">Free to play · Available on Android & iOS</p>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>Why you'll love it</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌴</div>
+        <h3>Malayalam Themed</h3>
+        <p>Word categories inspired by Kerala life — Food, Movies, Festivals, Gulf, College and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>3–10 Players</h3>
+        <p>Perfect for small gatherings or big parties. The more players, the more fun!</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎭</div>
+        <h3>Bluff & Deceive</h3>
+        <p>The Imposter must blend in without knowing the word. Can they fool everyone?</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>One Phone</h3>
+        <p>No internet required to play. Just one phone passed around the group.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Play -->
+  <section class="howtoplay">
+    <div class="howtoplay-inner">
+      <h2>How to Play</h2>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Enter player names</h3>
+          <p>Add everyone's names. Best with 3 or more players.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Pass & peek</h3>
+          <p>Each player secretly sees their word. The Imposter sees nothing!</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Give clues</h3>
+          <p>Everyone gives one clue about their word. The Imposter must bluff!</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Vote & reveal</h3>
+          <p>Vote on who you think the Imposter is. Then reveal the truth!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="support.html">Support</a>
+      <a href="delete-account.html">Delete Account</a>
+    </div>
+    <p>© 2026 Abin Mathew · Imposter Game - Malayalam Edition</p>
+  </footer>
+
+</body>
+</html>
